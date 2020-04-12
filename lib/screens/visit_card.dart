@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'details.dart';
+import '../ressources/consts_global.dart';
 
 class VisitCard extends StatelessWidget {
   @override
@@ -11,8 +13,13 @@ class VisitCard extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0.0,
       ),
-      body: Center(
-          child: Padding(
+      body: _buildBody(context),
+    );
+  }
+
+  Widget _buildBody(BuildContext context) {
+    return Center(
+      child: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -27,12 +34,8 @@ class VisitCard extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  'Nassim',
-                  style: TextStyle(
-                      fontFamily: 'JosefinSans',
-                      fontSize: 30.0,
-                      height: 1.5,
-                      color: Colors.white),
+                  nameVisitCard,
+                  style: styleVisitCard,
                 ),
               ),
             ),
@@ -41,15 +44,8 @@ class VisitCard extends StatelessWidget {
               margin: const EdgeInsets.only(top: 30.0, bottom: 15.0),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  'Développeur Symfony et flutter mobile en FreeLance',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontFamily: 'JosefinSans',
-                      fontSize: 20.0,
-                      height: 1.5,
-                      color: Colors.white),
-                ),
+                child: Text(statusVisitCard,
+                    textAlign: TextAlign.center, style: styleStatusVisitCard),
               ),
             ),
             RaisedButton(
@@ -61,15 +57,14 @@ class VisitCard extends StatelessWidget {
                     }),
                   );
                 },
-                child: Text('En savoir plus',
-                    style: TextStyle(
-                      fontFamily: 'JosefinSans',
-                      color: Colors.white70,
-                    )),
+                child: Text(
+                  buttonVisitCard,
+                  style: styleButtonVisitCard,
+                ),
                 color: Colors.blueGrey),
           ],
         ),
-      )),
+      ),
     );
   }
 }
